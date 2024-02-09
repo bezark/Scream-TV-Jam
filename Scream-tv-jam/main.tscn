@@ -5,5 +5,13 @@
 [node name="Main" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
 position = Vector2(465, 211)
 texture = ExtResource("1_sov6r")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 441.0
+offset_top = 350.0
+offset_right = 615.0
+offset_bottom = 436.0
+text = "Spooky"
