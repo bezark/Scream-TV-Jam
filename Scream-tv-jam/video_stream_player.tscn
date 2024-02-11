@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hxb54mlns80"]
+
+[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="1_i2tqs"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_i2tqs")
+autoplay = true

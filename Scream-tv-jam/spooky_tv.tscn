@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg6n6phwb4jtr"]
+
+[ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_i2ng7"]
+[ext_resource type="Texture2D" uid="uid://cvhou4cyhu7wo" path="res://assets/Texture/TV_02.jpg" id="2_upehn"]
+[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="3_muy3k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cy81r"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_i7fi0"]
+sky_material = SubResource("ProceduralSkyMaterial_cy81r")
+
+[sub_resource type="Environment" id="Environment_halgt"]
+background_mode = 2
+sky = SubResource("Sky_i7fi0")
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+glow_enabled = true
+glow_blend_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03f8q"]
+albedo_texture = ExtResource("2_upehn")
+roughness_texture = ExtResource("2_upehn")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mpsbn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j53mt"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npfwi"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_mpsbn")
+metallic = 1.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 2.69
+emission_texture = SubResource("ViewportTexture_j53mt")
+clearcoat_roughness = 1.0
+
+[node name="SpookyTV" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_halgt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="Comp" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_i2ng7")
+surface_material_override/0 = SubResource("StandardMaterial3D_03f8q")
+surface_material_override/1 = SubResource("StandardMaterial3D_npfwi")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+canvas_item_default_texture_filter = 0
+size = Vector2i(532, 300)
+size_2d_override_stretch = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewportContainer"]
+texture_filter = 1
+layout_mode = 2
+stream = ExtResource("3_muy3k")
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.567915, 0.189868, -0.800888, -2.01665e-08, 0.97303, 0.230678, 0.823087, 0.131006, -0.552599, -1.04776, 0.22483, -1.27142)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(10, 0.1, 10)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.452253, 0.872471, -1)
+radius = 0.21453
+height = 0.977436
