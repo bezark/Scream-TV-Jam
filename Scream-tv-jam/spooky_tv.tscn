@@ -24,6 +24,9 @@ ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 glow_blend_mode = 0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.6345
+volumetric_fog_albedo = Color(0.101961, 0.101961, 0.101961, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03f8q"]
 albedo_texture = ExtResource("2_upehn")
@@ -79,7 +82,7 @@ stream = ExtResource("3_muy3k")
 autoplay = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.567915, 0.189868, -0.800888, -2.01665e-08, 0.97303, 0.230678, 0.823087, 0.131006, -0.552599, -1.04776, 0.22483, -1.27142)
+transform = Transform3D(-0.968186, 0.240771, 0.0681576, 0.237912, 0.970126, -0.0474655, -0.0775498, -0.0297399, -0.996545, -0.188588, 0.100917, -3.38324)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
