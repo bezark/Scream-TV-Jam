@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://guryc3jmg1bp"
+path="res://.godot/imported/detailAwning_wide.obj-49964c93ce9f520bc4002e3e009fc672.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detailAwning_wide.obj-49964c93ce9f520bc4002e3e009fc672.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/detailAwning_wide.obj"
+dest_files=["res://.godot/imported/detailAwning_wide.obj-49964c93ce9f520bc4002e3e009fc672.mesh", "res://.godot/imported/detailAwning_wide.obj-49964c93ce9f520bc4002e3e009fc672.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

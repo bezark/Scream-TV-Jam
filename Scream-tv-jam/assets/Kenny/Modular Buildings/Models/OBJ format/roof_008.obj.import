@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://by73uvwwbdgvf"
+path="res://.godot/imported/roof_008.obj-1bde133fb32a0b1a135e22d28856191d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roof_008.obj-1bde133fb32a0b1a135e22d28856191d.mesh"]
+
+source_file="res://assets/Kenny/Modular Buildings/Models/OBJ format/roof_008.obj"
+dest_files=["res://.godot/imported/roof_008.obj-1bde133fb32a0b1a135e22d28856191d.mesh", "res://.godot/imported/roof_008.obj-1bde133fb32a0b1a135e22d28856191d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

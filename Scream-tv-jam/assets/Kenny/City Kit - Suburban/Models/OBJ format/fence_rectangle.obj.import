@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8kj5ydor1l6g"
+path="res://.godot/imported/fence_rectangle.obj-4ea33d25fbe2967ed32008a534f36abe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_rectangle.obj-4ea33d25fbe2967ed32008a534f36abe.mesh"]
+
+source_file="res://assets/Kenny/City Kit - Suburban/Models/OBJ format/fence_rectangle.obj"
+dest_files=["res://.godot/imported/fence_rectangle.obj-4ea33d25fbe2967ed32008a534f36abe.mesh", "res://.godot/imported/fence_rectangle.obj-4ea33d25fbe2967ed32008a534f36abe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

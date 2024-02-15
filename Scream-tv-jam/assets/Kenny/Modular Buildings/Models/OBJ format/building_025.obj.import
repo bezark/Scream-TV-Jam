@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xgcvk52pinqs"
+path="res://.godot/imported/building_025.obj-3e65017abfb4a36158e5bfd9417b6323.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_025.obj-3e65017abfb4a36158e5bfd9417b6323.mesh"]
+
+source_file="res://assets/Kenny/Modular Buildings/Models/OBJ format/building_025.obj"
+dest_files=["res://.godot/imported/building_025.obj-3e65017abfb4a36158e5bfd9417b6323.mesh", "res://.godot/imported/building_025.obj-3e65017abfb4a36158e5bfd9417b6323.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

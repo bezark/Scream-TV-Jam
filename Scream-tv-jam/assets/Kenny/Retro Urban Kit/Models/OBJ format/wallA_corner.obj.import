@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://buyipk4ia8eqf"
+path="res://.godot/imported/wallA_corner.obj-6bd4995e8ee97d23c69029b449e32b4f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallA_corner.obj-6bd4995e8ee97d23c69029b449e32b4f.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/wallA_corner.obj"
+dest_files=["res://.godot/imported/wallA_corner.obj-6bd4995e8ee97d23c69029b449e32b4f.mesh", "res://.godot/imported/wallA_corner.obj-6bd4995e8ee97d23c69029b449e32b4f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

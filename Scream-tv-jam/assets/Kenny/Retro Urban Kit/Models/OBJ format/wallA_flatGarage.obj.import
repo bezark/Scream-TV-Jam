@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b77pdwlhs647d"
+path="res://.godot/imported/wallA_flatGarage.obj-6a34673258c8fcd38f9b97481c6b3c7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallA_flatGarage.obj-6a34673258c8fcd38f9b97481c6b3c7c.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/wallA_flatGarage.obj"
+dest_files=["res://.godot/imported/wallA_flatGarage.obj-6a34673258c8fcd38f9b97481c6b3c7c.mesh", "res://.godot/imported/wallA_flatGarage.obj-6a34673258c8fcd38f9b97481c6b3c7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

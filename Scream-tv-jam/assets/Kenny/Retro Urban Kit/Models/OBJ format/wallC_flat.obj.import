@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbkq8rckjw5gm"
+path="res://.godot/imported/wallC_flat.obj-e178b5ec7f174ed8c3e9904a513c92d1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallC_flat.obj-e178b5ec7f174ed8c3e9904a513c92d1.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/wallC_flat.obj"
+dest_files=["res://.godot/imported/wallC_flat.obj-e178b5ec7f174ed8c3e9904a513c92d1.mesh", "res://.godot/imported/wallC_flat.obj-e178b5ec7f174ed8c3e9904a513c92d1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

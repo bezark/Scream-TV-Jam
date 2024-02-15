@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n3awwr5x35vs"
+path="res://.godot/imported/roadDirt_pavement.obj-95db611564a921bb1bcfef260661fc32.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roadDirt_pavement.obj-95db611564a921bb1bcfef260661fc32.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/roadDirt_pavement.obj"
+dest_files=["res://.godot/imported/roadDirt_pavement.obj-95db611564a921bb1bcfef260661fc32.mesh", "res://.godot/imported/roadDirt_pavement.obj-95db611564a921bb1bcfef260661fc32.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

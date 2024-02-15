@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpcf1gog77j1s"]
+
+[ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_1wdu5"]
+[ext_resource type="Texture2D" uid="uid://dks8dj0wdf2mn" path="res://assets/Texture/TV_03.jpg" id="2_mj5ct"]
+[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="3_xgk67"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ura5"]
+albedo_texture = ExtResource("2_mj5ct")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ehnd4"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0mqyk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpg6i"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ehnd4")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_0mqyk")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jxkkm"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TV" type="Node3D"]
+
+[node name="Comp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = ExtResource("1_1wdu5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7ura5")
+surface_material_override/1 = SubResource("StandardMaterial3D_hpg6i")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+canvas_item_default_texture_filter = 0
+size = Vector2i(532, 300)
+size_2d_override_stretch = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewportContainer"]
+texture_filter = 1
+layout_mode = 2
+stream = ExtResource("3_xgk67")
+autoplay = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347375, 0)
+light_color = Color(0.627451, 1, 1, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_projector = SubResource("ViewportTexture_jxkkm")
+light_size = 1.0
+shadow_enabled = true
+spot_range = 7.08239
+spot_angle = 30.5856

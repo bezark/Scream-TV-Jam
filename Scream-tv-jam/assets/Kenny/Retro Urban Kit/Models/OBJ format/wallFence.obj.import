@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbv0p5dq2y30j"
+path="res://.godot/imported/wallFence.obj-43303bf769c57ff2ebcdc89a9be17527.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallFence.obj-43303bf769c57ff2ebcdc89a9be17527.mesh"]
+
+source_file="res://assets/Kenny/Retro Urban Kit/Models/OBJ format/wallFence.obj"
+dest_files=["res://.godot/imported/wallFence.obj-43303bf769c57ff2ebcdc89a9be17527.mesh", "res://.godot/imported/wallFence.obj-43303bf769c57ff2ebcdc89a9be17527.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
