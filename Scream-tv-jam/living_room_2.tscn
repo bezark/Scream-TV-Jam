@@ -6,7 +6,7 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amr78"]
 sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+sky_horizon_color = Color(0.760784, 0.760784, 0.760784, 1)
 sky_energy_multiplier = 1.4
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
@@ -248,6 +248,7 @@ cast_shadow = 2
 lod_bias = 0.001
 
 [node name="Interior" type="MeshInstance3D" parent="HouseBones/tmpParent/house_type01" index="0"]
+visible = false
 mesh = SubResource("ArrayMesh_a8k5i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="HouseBones/tmpParent/house_type01/Interior"]
@@ -281,7 +282,7 @@ skeleton = NodePath("")
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Blob" type="AnimatableBody3D" parent="Entities"]
-transform = Transform3D(-29.8927, 0, -1.69024, 0, 30, 0, 2.53536, 0, -19.9284, 20.2632, 0.841323, -3.81183)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 20.2632, 0.841323, -3.81183)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Entities/Blob"]
 root_node = NodePath("../BlobMesh")
