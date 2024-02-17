@@ -1,17 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbarboru6xgcv"]
+[gd_scene load_steps=7 format=3 uid="uid://dbarboru6xgcv"]
 
-[ext_resource type="Texture2D" uid="uid://dpjg7tfkgqn88" path="res://icon.svg" id="1_sov6r"]
+[ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="1_qfbtf"]
+[ext_resource type="PackedScene" uid="uid://bseken28keq43" path="res://Characters/living_tv.tscn" id="2_gvssm"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_c37tt"]
+vertices = PackedVector3Array(97.8804, 1, -18.4685, 127.63, 1, -18.4685, 127.38, 1, -129.219, 97.8804, 1, -129.219, -15.3696, 19.25, -128.719, -15.3696, 19.25, -17.7185, 96.6304, 19.25, -17.7185, 96.6304, 19.25, -128.719, 127.63, 1, -16.7185, 127.63, 1, -18.4685, 97.8804, 1, -18.4685, 97.8804, 1, -16.7185, 128.63, 1, -16.4685, 127.63, 1, -16.7185, 97.8804, 1, -16.7185, 96.1304, 1, -16.4685, 96.3804, 1, 19.2815, 128.63, 1, 19.2815, 96.1304, 1, -16.4685, -15.3696, 1, -16.4685, -15.3696, 1, 19.2815, 96.3804, 1, 19.2815)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(16, 12, 17), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21)]
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(465, 211)
-texture = ExtResource("1_sov6r")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_elef2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 441.0
-offset_top = 350.0
-offset_right = 615.0
-offset_bottom = 436.0
-text = "Spooky"
+[sub_resource type="Sky" id="Sky_6vcxm"]
+sky_material = SubResource("ProceduralSkyMaterial_elef2")
+
+[sub_resource type="Environment" id="Environment_g4s0y"]
+background_mode = 2
+sky = SubResource("Sky_6vcxm")
+tonemap_mode = 2
+
+[node name="MAIN" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="LivingRoom" type="Node3D" parent="Level"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level/LivingRoom"]
+navigation_mesh = SubResource("NavigationMesh_c37tt")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level/LivingRoom/NavigationRegion3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/LivingRoom/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6304, 0, -54.7185)
+use_collision = true
+size = Vector3(145, 1, 150)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level/LivingRoom/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 40.6304, 9.5, -73.2185)
+use_collision = true
+size = Vector3(113, 112, 19)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Level/LivingRoom/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 128.63, 9.5, -73.7185)
+use_collision = true
+size = Vector3(113, 1, 19)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Level/LivingRoom/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 56.6304, 9.5, 20.2815)
+use_collision = true
+size = Vector3(145, 1, 19)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_g4s0y")
+
+[node name="Player" parent="." instance=ExtResource("1_qfbtf")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 6, 1.5, 1)
+
+[node name="PileofTVs" type="Node3D" parent="."]
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="TV" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 2, 1)
+target = NodePath("../Player")

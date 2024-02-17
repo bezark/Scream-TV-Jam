@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bg6n6phwb4jtr"]
 
-[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://tv.tscn" id="1_k8cck"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://experiments/tv.tscn" id="1_pclia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cy81r"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -48,4 +48,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.452253, 0.872471, -1)
 radius = 0.21453
 height = 0.977436
 
-[node name="TV" parent="." instance=ExtResource("1_k8cck")]
+[node name="TV" parent="." instance=ExtResource("1_pclia")]

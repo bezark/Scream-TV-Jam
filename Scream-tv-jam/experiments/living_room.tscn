@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cam1rqa81c3od"]
 
-[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://tv.tscn" id="1_qrslm"]
-[ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Player/player.tscn" id="2_pxiij"]
-[ext_resource type="PackedScene" uid="uid://dntsytev5eqhf" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/treePine_large.glb" id="3_5gpyj"]
-[ext_resource type="PackedScene" uid="uid://d4axio1dfsavn" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/truck_green.glb" id="4_bs5bf"]
-[ext_resource type="PackedScene" uid="uid://dghkrptovovw7" path="res://assets/Kenny/City Kit - Suburban/Models/GLTF format/house_type01.glb" id="5_kpon5"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://experiments/tv.tscn" id="1_t471l"]
+[ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="2_ljk03"]
+[ext_resource type="PackedScene" uid="uid://dntsytev5eqhf" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/treePine_large.glb" id="3_1lp60"]
+[ext_resource type="PackedScene" uid="uid://d4axio1dfsavn" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/truck_green.glb" id="4_lssep"]
+[ext_resource type="PackedScene" uid="uid://dghkrptovovw7" path="res://assets/Kenny/City Kit - Suburban/Models/GLTF format/house_type01.glb" id="5_7an8a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1wxyx"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -29,27 +29,27 @@ volumetric_fog_density = 0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xolai")
 
-[node name="TV" parent="." instance=ExtResource("1_qrslm")]
+[node name="TV" parent="." instance=ExtResource("1_t471l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 1, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_pxiij")]
+[node name="Player" parent="." instance=ExtResource("2_ljk03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0)
 
 [node name="Outside" type="Node3D" parent="."]
 
-[node name="treePine_large2" parent="Outside" instance=ExtResource("3_5gpyj")]
+[node name="treePine_large2" parent="Outside" instance=ExtResource("3_1lp60")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4, -2, -11)
 
-[node name="treePine_large3" parent="Outside" instance=ExtResource("3_5gpyj")]
+[node name="treePine_large3" parent="Outside" instance=ExtResource("3_1lp60")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, -2, 5)
 
-[node name="treePine_large4" parent="Outside" instance=ExtResource("3_5gpyj")]
+[node name="treePine_large4" parent="Outside" instance=ExtResource("3_1lp60")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, -2, -7)
 
-[node name="truck_green2" parent="Outside" instance=ExtResource("4_bs5bf")]
+[node name="truck_green2" parent="Outside" instance=ExtResource("4_lssep")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2, 0, 16)
 
-[node name="house_type012" parent="Outside" instance=ExtResource("5_kpon5")]
+[node name="house_type012" parent="Outside" instance=ExtResource("5_7an8a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15026, 1, -0.323717)
 
 [node name="Room" type="Node3D" parent="."]

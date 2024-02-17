@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://bkgx0qx0dh770"]
 
-[ext_resource type="PackedScene" uid="uid://dghkrptovovw7" path="res://assets/Kenny/City Kit - Suburban/Models/GLTF format/house_type01.glb" id="1_vf65x"]
-[ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Player/player.tscn" id="2_unjek"]
-[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://tv.tscn" id="3_cttjp"]
+[ext_resource type="PackedScene" uid="uid://dghkrptovovw7" path="res://assets/Kenny/City Kit - Suburban/Models/GLTF format/house_type01.glb" id="1_bmwla"]
+[ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="2_yavq7"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://experiments/tv.tscn" id="3_k1jwh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amr78"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -240,7 +240,7 @@ data = PackedVector3Array(-1.2209, -0.6588, 0, -2.0716, -1.4444, 0, -1.2372, -1.
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8mbc")
 
-[node name="HouseBones" parent="." instance=ExtResource("1_vf65x")]
+[node name="HouseBones" parent="." instance=ExtResource("1_bmwla")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="house_type01" parent="HouseBones/tmpParent" index="0"]
@@ -261,10 +261,10 @@ shape = SubResource("ConcavePolygonShape3D_47hke")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseBones/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qnvys")
 
-[node name="Player" parent="." instance=ExtResource("2_unjek")]
+[node name="Player" parent="." instance=ExtResource("2_yavq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71448, 2.96017, -8.05679)
 
-[node name="TV" parent="." instance=ExtResource("3_cttjp")]
+[node name="TV" parent="." instance=ExtResource("3_k1jwh")]
 transform = Transform3D(-1.57288e-08, 0.933016, -0.359834, 4.07834e-08, 0.359834, 0.933016, 1, 0, -4.37114e-08, 3.73626, 4.59823, -8.74942)
 
 [node name="Furniture" type="Node3D" parent="."]
@@ -302,7 +302,7 @@ shape = SubResource("ConcavePolygonShape3D_rr32s")
 [node name="BIGTVMAN" type="Node3D" parent="."]
 transform = Transform3D(-6.72313e-07, -49.2173, -8.81215, -3.75498e-06, 8.81215, -49.2173, 50, -1.35182e-13, -3.8147e-06, -28.2713, -363.749, -0.202049)
 
-[node name="TV" parent="BIGTVMAN" instance=ExtResource("3_cttjp")]
+[node name="TV" parent="BIGTVMAN" instance=ExtResource("3_k1jwh")]
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="BIGTVMAN/TV"]
 transform = Transform3D(0.02, -9.54792e-17, 1.11022e-16, -2.6965e-18, 0.02, 1.86265e-09, -1.11022e-16, -1.86265e-09, 0.02, 0.15478, 0.687525, -0.586103)

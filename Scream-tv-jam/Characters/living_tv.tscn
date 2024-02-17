@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://bseken28keq43"]
+
+[ext_resource type="Script" path="res://Characters/living_tv.gd" id="1_ht7ep"]
+[ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_iww6c"]
+[ext_resource type="Texture2D" uid="uid://dks8dj0wdf2mn" path="res://assets/Texture/TV_03.jpg" id="2_2pox0"]
+[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="3_52qhw"]
+[ext_resource type="Script" path="res://FSM/StateMachine.gd" id="4_x6g53"]
+[ext_resource type="Script" path="res://FSM/States/happy_broadcast.gd" id="6_gencv"]
+[ext_resource type="Script" path="res://FSM/States/anxious.gd" id="7_5l7my"]
+[ext_resource type="Script" path="res://FSM/States/move_to.gd" id="8_njei7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ura5"]
+albedo_texture = ExtResource("2_2pox0")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ehnd4"]
+viewport_path = NodePath("Content")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0mqyk"]
+viewport_path = NodePath("Content")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpg6i"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ehnd4")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_0mqyk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1il55"]
+data = PackedVector3Array(-0.5523, -0.3257, 0.5415, -0.5523, 0.5702, -0.5068, -0.5523, 0.5702, 0.5415, -0.5523, -0.6066, 0.3369, -0.5523, -0.3257, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, -0.5068, -0.5523, -0.6066, -0.5068, -0.5523, 0.5702, 0.5415, -0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.5523, -0.3257, 0.5415, 0.5523, 0.5702, 0.5415, -0.5523, -0.3257, 0.5415, -0.5523, 0.5702, 0.5415, 0.5523, 0.5702, 0.5415, 0.5523, -0.6066, -0.5068, 0.4451, -0.2321, -0.5068, -0.436, -0.2321, -0.5068, -0.436, 0.4429, -0.5068, 0.4451, 0.4429, -0.5068, 0.5523, 0.5702, -0.5068, -0.436, -0.2321, -0.5068, -0.436, 0.4429, -0.5068, -0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.4451, 0.4429, -0.5068, 0.4451, -0.2321, -0.5068, -0.5523, 0.5702, -0.5068, -0.5523, -0.3257, 0.5415, -0.5523, -0.6066, -0.5068, -0.5523, -0.6066, -0.5068, -0.5523, -0.3257, 0.5415, -0.5523, -0.6066, 0.3369, -0.5523, -0.6066, 0.3369, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, 0.3369, -0.5523, -0.6066, -0.5068, -0.5523, -0.6066, 0.3369, -0.5523, 0.5702, 0.5415, 0.5523, 0.5702, -0.5068, 0.5523, 0.5702, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, -0.5068, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, -0.5068, 0.5523, -0.3257, 0.5415, 0.5523, 0.5702, -0.5068, -0.5523, -0.3257, 0.5415, 0.5523, 0.5702, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, -0.5068, -0.436, -0.2321, -0.5068, -0.5523, -0.6066, -0.5068, -0.436, 0.4429, -0.5068, 0.5523, 0.5702, -0.5068, -0.5523, 0.5702, -0.5068, -0.436, -0.2321, -0.5068, -0.5523, 0.5702, -0.5068, -0.5523, -0.6066, -0.5068, 0.5523, 0.5702, -0.5068, 0.4451, -0.2321, -0.5068, 0.5523, -0.6066, -0.5068, -0.436, -0.2321, -0.5068, 0.4451, -0.2321, -0.5068, 0.4451, 0.4429, -0.5068, -0.436, -0.2321, -0.5068, 0.4451, 0.4429, -0.5068, -0.436, 0.4429, -0.5068)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jxkkm"]
+viewport_path = NodePath("Content")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kegae"]
+height = 4.0
+radius = 15.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8s8w3"]
+height = 34.116
+radius = 6.339
+
+[node name="TV" type="CharacterBody3D"]
+script = ExtResource("1_ht7ep")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = ExtResource("1_iww6c")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7ura5")
+surface_material_override/1 = SubResource("StandardMaterial3D_hpg6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("ConcavePolygonShape3D_1il55")
+
+[node name="Content" type="SubViewport" parent="."]
+canvas_item_default_texture_filter = 0
+size = Vector2i(532, 300)
+size_2d_override_stretch = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Content"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Content/SubViewportContainer"]
+texture_filter = 1
+layout_mode = 2
+stream = ExtResource("3_52qhw")
+autoplay = true
+
+[node name="Beam" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347375, 0)
+light_color = Color(0.627451, 1, 1, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_projector = SubResource("ViewportTexture_jxkkm")
+light_size = 1.0
+shadow_enabled = true
+spot_range = 7.08239
+spot_angle = 30.5856
+
+[node name="Senses" type="Node3D" parent="."]
+
+[node name="NavAgent" type="NavigationAgent3D" parent="Senses"]
+
+[node name="Area" type="Area3D" parent="Senses"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Senses/Area"]
+shape = SubResource("CylinderShape3D_kegae")
+
+[node name="LineOfSight" type="ShapeCast3D" parent="Senses"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.499933, -15)
+shape = SubResource("CylinderShape3D_8s8w3")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_x6g53")
+initial_state = NodePath("happy_broadcast")
+
+[node name="happy_broadcast" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("6_gencv")
+character = NodePath("../..")
+
+[node name="anxious" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("7_5l7my")
+character = NodePath("../..")
+
+[node name="move_to" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("8_njei7")
+character = NodePath("../..")
+
+[connection signal="body_entered" from="Senses/Area" to="StateMachine/anxious" method="_on_area_body_entered"]
+[connection signal="body_exited" from="Senses/Area" to="StateMachine/happy_broadcast" method="_on_area_body_exited"]
