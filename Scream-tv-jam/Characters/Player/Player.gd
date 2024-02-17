@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var mouse_captured = true
+var mouse_captured = false
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -11,6 +11,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_dir: Vector2
 @onready var camera = $Camera3D
 @export var camera_sensitivity = 50
+
+func _ready():
+	#TODO: Put back in capture
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#mouse_captured = true
+	pass
 
 func _physics_process(delta):
 	# Add the gravity.

@@ -25,9 +25,10 @@ func _physics_process(delta):
 
 
 func on_child_transition(state, new_state_name):
+	
 	if state != current_state:
-		print("states not eaual")
-		return #TODO: REALLY??
+		prints(state, "tried to transition, but is not active. Active is", current_state )
+		return
 	
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:

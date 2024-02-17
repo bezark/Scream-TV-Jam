@@ -1,23 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbarboru6xgcv"]
+[gd_scene load_steps=8 format=3 uid="uid://dbarboru6xgcv"]
 
 [ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="1_qfbtf"]
 [ext_resource type="PackedScene" uid="uid://bseken28keq43" path="res://Characters/living_tv.tscn" id="2_gvssm"]
+[ext_resource type="PackedScene" uid="uid://dnu50h3x1jkj2" path="res://Characters/MAINtv.tscn" id="2_s48as"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c37tt"]
-vertices = PackedVector3Array(97.8804, 1, -18.4685, 127.63, 1, -18.4685, 127.38, 1, -129.219, 97.8804, 1, -129.219, -15.3696, 19.25, -128.719, -15.3696, 19.25, -17.7185, 96.6304, 19.25, -17.7185, 96.6304, 19.25, -128.719, 127.63, 1, -16.7185, 127.63, 1, -18.4685, 97.8804, 1, -18.4685, 97.8804, 1, -16.7185, 128.63, 1, -16.4685, 127.63, 1, -16.7185, 97.8804, 1, -16.7185, 96.1304, 1, -16.4685, 96.3804, 1, 19.2815, 128.63, 1, 19.2815, 96.1304, 1, -16.4685, -15.3696, 1, -16.4685, -15.3696, 1, 19.2815, 96.3804, 1, 19.2815)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(16, 12, 17), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21)]
+vertices = PackedVector3Array(100.88, 0.970581, -18.7185, 124.38, 0.970581, -18.7185, 124.38, 0.970581, -126.219, 100.88, 0.970581, -126.219, -12.3696, 19.4706, -125.719, -12.3696, 19.4706, -20.4685, 93.6304, 19.4706, -20.4685, 93.6304, 19.4706, -125.719, 97.6304, 0.970581, -13.4685, 93.8804, 0.970581, -13.4685, 93.8804, 0.970581, -6.21851, 97.6304, 0.970581, -4.71851, 100.88, 0.970581, -16.7185, 98.3804, 0.970581, -3.96851, 99.8804, 0.970581, -0.218506, 125.63, 0.970581, -0.218506, 125.63, 0.970581, -14.7185, 124.38, 0.970581, -16.7185, 97.6304, 0.970581, -13.4685, 97.6304, 0.970581, -4.71851, 98.3804, 0.970581, -3.96851, 99.6304, 0.970581, -14.4685, 124.38, 0.970581, -16.7185, 124.38, 0.970581, -18.7185, 100.88, 0.970581, -18.7185, 100.88, 0.970581, -16.7185, 100.88, 0.970581, -16.7185, 99.6304, 0.970581, -14.4685, 98.3804, 0.970581, -3.96851, 89.6304, 0.970581, -4.46851, 93.8804, 0.970581, -6.21851, 93.8804, 0.970581, -13.4685, 93.8804, 0.970581, 16.2815, 93.8804, 0.970581, 6.03149, 89.3804, 0.970581, 4.03149, 87.8804, 0.970581, -0.968506, 89.6304, 0.970581, -4.46851, 93.8804, 0.970581, -13.4685, -12.3696, 0.970581, -13.4685, 93.8804, 0.970581, 16.2815, 89.3804, 0.970581, 4.03149, 87.8804, 0.970581, 0.781494, -12.3696, 0.970581, -13.4685, -12.3696, 0.970581, 16.2815, 87.8804, 0.970581, 0.781494, 87.8804, 0.970581, -0.968506, -12.3696, 0.970581, -13.4685, 98.3804, 0.970581, 4.03149, 93.8804, 0.970581, 6.03149, 93.8804, 0.970581, 16.2815, 99.8804, 0.970581, 0.781494, 98.3804, 0.970581, 4.03149, 93.8804, 0.970581, 16.2815, 125.63, 0.970581, 16.2815, 125.63, 0.970581, -0.218506, 125.63, 0.970581, -0.218506, 99.8804, 0.970581, -0.218506, 99.8804, 0.970581, 0.781494)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 12), PackedInt32Array(12, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(28, 27, 26), PackedInt32Array(31, 30, 29), PackedInt32Array(34, 33, 32), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 43), PackedInt32Array(41, 43, 42), PackedInt32Array(46, 45, 44), PackedInt32Array(47, 49, 48), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 54), PackedInt32Array(52, 54, 53), PackedInt32Array(57, 56, 55)]
+geometry_parsed_geometry_type = 2
+agent_radius = 3.5
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_elef2"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2j3av"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.760784, 0.760784, 0.760784, 1)
+sky_energy_multiplier = 1.4
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
 
-[sub_resource type="Sky" id="Sky_6vcxm"]
-sky_material = SubResource("ProceduralSkyMaterial_elef2")
+[sub_resource type="Sky" id="Sky_1oxmw"]
+sky_material = SubResource("ProceduralSkyMaterial_2j3av")
 
-[sub_resource type="Environment" id="Environment_g4s0y"]
+[sub_resource type="Environment" id="Environment_d2auu"]
 background_mode = 2
-sky = SubResource("Sky_6vcxm")
+sky = SubResource("Sky_1oxmw")
 tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.5
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_emission_energy = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.23
+adjustment_saturation = 0.5
 
 [node name="MAIN" type="Node3D"]
 
@@ -51,20 +65,53 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 56.630
 use_collision = true
 size = Vector3(145, 1, 19)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Level/LivingRoom/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8652, 1.46075, -0.0592417)
+radius = 2.43781
+height = 5.48033
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource("Environment_g4s0y")
+environment = SubResource("Environment_d2auu")
 
-[node name="Player" parent="." instance=ExtResource("1_qfbtf")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 6, 1.5, 1)
+[node name="Person" parent="." instance=ExtResource("1_qfbtf")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 7.03833, 1.5, -0.401871)
 
-[node name="PileofTVs" type="Node3D" parent="."]
+[node name="TV" parent="." instance=ExtResource("2_s48as")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+
+[node name="NPCTVs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.055, 1.90735e-06, -85.3168)
+
+[node name="TV" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 5.75544, 1, -10.0851)
+target = NodePath("../../Person")
+
+[node name="TV2" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 4.41597, 1, -10.5366)
+target = NodePath("../../Person")
+
+[node name="TV3" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 5.92892, 2.223, -10.494)
+target = NodePath("../../Person")
+
+[node name="TV4" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-0.241481, -0.0647047, 3.7749e-08, -0.0647047, 0.241481, 3.8567e-09, -3.74609e-08, -6.04486e-09, -0.25, 5.22772, 0.605626, -8.64382)
+target = NodePath("../../Person")
+
+[node name="TV5" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-2.58725, 0.233409, 1.50054, 0.279591, 2.98689, 0.017463, -1.49263, 0.154906, -2.5977, 9.15762, 1, -13.3754)
+target = NodePath("../../Person")
+
+[node name="TV6" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-0.749811, 0, 0.661652, 0, 1, 0, -0.661652, 0, -0.749811, 7.48352, 1, -10.6318)
+target = NodePath("../../Person")
+
+[node name="TV7" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-0.749811, 0, 0.661652, 0, 1, 0, -0.661652, 0, -0.749811, 7.58244, 2.223, -11.0371)
+target = NodePath("../../Person")
+
+[node name="TV8" parent="NPCTVs" node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
+transform = Transform3D(-0.362131, -0.0970326, 0.330826, -0.129409, 0.482963, 8.2301e-09, -0.319554, -0.0856241, -0.374905, 6.83982, 0.650166, -8.67551)
+target = NodePath("../../Person")
 
 [node name="Areas" type="Node3D" parent="."]
-
-[node name="TV" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_gvssm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 2, 1)
-target = NodePath("../Player")

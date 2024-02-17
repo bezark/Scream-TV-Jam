@@ -3,20 +3,21 @@
 [ext_resource type="Script" path="res://Characters/living_tv.gd" id="1_ht7ep"]
 [ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_iww6c"]
 [ext_resource type="Texture2D" uid="uid://dks8dj0wdf2mn" path="res://assets/Texture/TV_03.jpg" id="2_2pox0"]
-[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="3_52qhw"]
+[ext_resource type="VideoStream" path="res://Content/videos/experimentsinmotiongraphics.ogv" id="4_nftcm"]
 [ext_resource type="Script" path="res://FSM/StateMachine.gd" id="4_x6g53"]
 [ext_resource type="Script" path="res://FSM/States/happy_broadcast.gd" id="6_gencv"]
 [ext_resource type="Script" path="res://FSM/States/anxious.gd" id="7_5l7my"]
 [ext_resource type="Script" path="res://FSM/States/move_to.gd" id="8_njei7"]
+[ext_resource type="Script" path="res://FSM/States/runaway.gd" id="9_62gid"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ura5"]
 albedo_texture = ExtResource("2_2pox0")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ehnd4"]
-viewport_path = NodePath("Content")
+viewport_path = NodePath("Content/Images")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0mqyk"]
-viewport_path = NodePath("Content")
+viewport_path = NodePath("Content/Images")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpg6i"]
 resource_local_to_scene = true
@@ -28,18 +29,21 @@ emission_texture = SubResource("ViewportTexture_0mqyk")
 data = PackedVector3Array(-0.5523, -0.3257, 0.5415, -0.5523, 0.5702, -0.5068, -0.5523, 0.5702, 0.5415, -0.5523, -0.6066, 0.3369, -0.5523, -0.3257, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, -0.5068, -0.5523, -0.6066, -0.5068, -0.5523, 0.5702, 0.5415, -0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.5523, -0.3257, 0.5415, 0.5523, 0.5702, 0.5415, -0.5523, -0.3257, 0.5415, -0.5523, 0.5702, 0.5415, 0.5523, 0.5702, 0.5415, 0.5523, -0.6066, -0.5068, 0.4451, -0.2321, -0.5068, -0.436, -0.2321, -0.5068, -0.436, 0.4429, -0.5068, 0.4451, 0.4429, -0.5068, 0.5523, 0.5702, -0.5068, -0.436, -0.2321, -0.5068, -0.436, 0.4429, -0.5068, -0.5523, 0.5702, -0.5068, 0.5523, 0.5702, -0.5068, 0.4451, 0.4429, -0.5068, 0.4451, -0.2321, -0.5068, -0.5523, 0.5702, -0.5068, -0.5523, -0.3257, 0.5415, -0.5523, -0.6066, -0.5068, -0.5523, -0.6066, -0.5068, -0.5523, -0.3257, 0.5415, -0.5523, -0.6066, 0.3369, -0.5523, -0.6066, 0.3369, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, 0.3369, -0.5523, -0.6066, -0.5068, -0.5523, -0.6066, 0.3369, -0.5523, 0.5702, 0.5415, 0.5523, 0.5702, -0.5068, 0.5523, 0.5702, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, -0.5068, 0.5523, -0.6066, 0.3369, 0.5523, -0.6066, -0.5068, 0.5523, -0.3257, 0.5415, 0.5523, 0.5702, -0.5068, -0.5523, -0.3257, 0.5415, 0.5523, 0.5702, 0.5415, 0.5523, -0.3257, 0.5415, 0.5523, -0.6066, -0.5068, -0.436, -0.2321, -0.5068, -0.5523, -0.6066, -0.5068, -0.436, 0.4429, -0.5068, 0.5523, 0.5702, -0.5068, -0.5523, 0.5702, -0.5068, -0.436, -0.2321, -0.5068, -0.5523, 0.5702, -0.5068, -0.5523, -0.6066, -0.5068, 0.5523, 0.5702, -0.5068, 0.4451, -0.2321, -0.5068, 0.5523, -0.6066, -0.5068, -0.436, -0.2321, -0.5068, 0.4451, -0.2321, -0.5068, 0.4451, 0.4429, -0.5068, -0.436, -0.2321, -0.5068, 0.4451, 0.4429, -0.5068, -0.436, 0.4429, -0.5068)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jxkkm"]
-viewport_path = NodePath("Content")
+viewport_path = NodePath("Content/Images")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kegae"]
-height = 4.0
+height = 6.74173
 radius = 15.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_8s8w3"]
-height = 34.116
-radius = 6.339
 
 [node name="TV" type="CharacterBody3D"]
 script = ExtResource("1_ht7ep")
+
+[node name="NavAgent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+avoidance_enabled = true
+radius = 1.0
+debug_use_custom = true
+debug_path_custom_color = Color(1, 1, 0, 1)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -52,21 +56,39 @@ surface_material_override/1 = SubResource("StandardMaterial3D_hpg6i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("ConcavePolygonShape3D_1il55")
 
-[node name="Content" type="SubViewport" parent="."]
+[node name="Content" type="Node3D" parent="."]
+
+[node name="Images" type="SubViewport" parent="Content"]
 canvas_item_default_texture_filter = 0
 size = Vector2i(532, 300)
 size_2d_override_stretch = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Content"]
-texture_filter = 1
-offset_right = 40.0
-offset_bottom = 40.0
-stretch = true
+[node name="ColorRect" type="ColorRect" parent="Content/Images"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Content/SubViewportContainer"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Content/Images/ColorRect"]
 texture_filter = 1
-layout_mode = 2
-stream = ExtResource("3_52qhw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 498.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("4_nftcm")
+volume_db = -80.0
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Content"]
 autoplay = true
 
 [node name="Beam" type="SpotLight3D" parent="."]
@@ -82,16 +104,14 @@ spot_angle = 30.5856
 
 [node name="Senses" type="Node3D" parent="."]
 
-[node name="NavAgent" type="NavigationAgent3D" parent="Senses"]
+[node name="Visibile" type="VisibleOnScreenNotifier3D" parent="Senses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+aabb = AABB(-1, -1, -1, 2, 1.5, 2)
 
 [node name="Area" type="Area3D" parent="Senses"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Senses/Area"]
 shape = SubResource("CylinderShape3D_kegae")
-
-[node name="LineOfSight" type="ShapeCast3D" parent="Senses"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.499933, -15)
-shape = SubResource("CylinderShape3D_8s8w3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_x6g53")
@@ -109,5 +129,12 @@ character = NodePath("../..")
 script = ExtResource("8_njei7")
 character = NodePath("../..")
 
+[node name="runaway" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("9_62gid")
+character = NodePath("../..")
+
+[connection signal="velocity_computed" from="NavAgent" to="StateMachine/move_to" method="_on_nav_agent_velocity_computed"]
+[connection signal="screen_entered" from="Senses/Visibile" to="StateMachine/move_to" method="_on_visibile_screen_entered"]
+[connection signal="screen_exited" from="Senses/Visibile" to="StateMachine/move_to" method="_on_visibile_screen_exited"]
 [connection signal="body_entered" from="Senses/Area" to="StateMachine/anxious" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Senses/Area" to="StateMachine/happy_broadcast" method="_on_area_body_exited"]

@@ -16,6 +16,10 @@ func Update(delta: float):
 
 
 func _on_area_body_entered(body):	
-	if body == character.target && !character.afraid_of_target:
-		Transitioned.emit(self, "happy_broadcast")
+	if body == character.target:
+		if !character.afraid_of_target:
+			Transitioned.emit(self, "happy_broadcast")
+		else:
+			Transitioned.emit(self, "runaway")
+
 	

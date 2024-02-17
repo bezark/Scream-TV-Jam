@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_1wdu5"]
 [ext_resource type="Texture2D" uid="uid://dks8dj0wdf2mn" path="res://assets/Texture/TV_03.jpg" id="2_mj5ct"]
-[ext_resource type="VideoStream" path="res://assets/videos/experimentsinmotiongraphics.ogv" id="3_xgk67"]
+[ext_resource type="VideoStream" path="res://Content/videos/experimentsinmotiongraphics.ogv" id="3_xgk67"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ura5"]
 albedo_texture = ExtResource("2_mj5ct")
