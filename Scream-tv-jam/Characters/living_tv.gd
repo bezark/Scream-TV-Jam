@@ -1,11 +1,20 @@
 extends CharacterBody3D
 class_name tv
 
+signal interactable
+signal watch_val_changed
 #TODO: change class into Agent base class for player and tvs alike...
 @export var target : Node3D
 var afraid_of_target = false
 @export var distance_threshold = 30.
 @export var SPEED = 5.0
+
+@export_category("Watched")
+@export var watched_value = 50.0
+
+var on_screen : bool
+
+
 #const JUMP_VELOCITY = 4.5
 #
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -14,6 +23,7 @@ var afraid_of_target = false
 #
 func _physics_process(delta):
 	move_and_slide()
+	
 	## Add the gravity.
 	#if not is_on_floor():
 		#velocity.y -= gravity * delta
@@ -34,3 +44,17 @@ func _physics_process(delta):
 		#velocity.z = move_toward(velocity.z, 0, SPEED)
 #
 	#move_and_slide()
+
+
+func _on_area_body_entered(body):
+	emit_signal("interactable", self, body, true)
+
+
+func _on_area_body_exited(body):
+	emit_signal("interactable", self, body, false)
+
+func change_watched_value(val):
+	watched_value += val
+	%Watched.value = watched_value
+	watched_value = %Watched.value
+	emit_signal("watch_val_changed", watched_value)

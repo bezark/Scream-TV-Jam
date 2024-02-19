@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnu50h3x1jkj2"]
+[gd_scene load_steps=12 format=3 uid="uid://dnu50h3x1jkj2"]
 
 [ext_resource type="PackedScene" uid="uid://bseken28keq43" path="res://Characters/living_tv.tscn" id="1_5lnem"]
+[ext_resource type="Script" path="res://FSM/TVStates/Controlled.gd" id="2_2muyx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avmlp"]
 resource_local_to_scene = true
@@ -85,7 +86,13 @@ emission_texture = SubResource("ViewportTexture_rs33v")
 [sub_resource type="ViewportTexture" id="ViewportTexture_be3kl"]
 viewport_path = NodePath("Content/Images")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c071r"]
+height = 8.9966
+radius = 3.59204
+
 [node name="TV" instance=ExtResource("1_5lnem")]
+motion_mode = 1
+watched_value = 500.0
 
 [node name="Mesh" parent="." index="1"]
 mesh = SubResource("ArrayMesh_2jicf")
@@ -93,5 +100,41 @@ surface_material_override/1 = SubResource("StandardMaterial3D_w2uc5")
 
 [node name="Beam" parent="." index="4"]
 light_projector = SubResource("ViewportTexture_be3kl")
+spot_range = 9.934
 
-[node name="Controlled" type="Node" parent="StateMachine" index="3"]
+[node name="BeamRange" type="Area3D" parent="Beam" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.347375, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Beam/BeamRange" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -4)
+shape = SubResource("CylinderShape3D_c071r")
+
+[node name="Controlled" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("character")]
+script = ExtResource("2_2muyx")
+character = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.979102, -0.203368, 0, 0.203368, 0.979102, 0, 0.490317, 0.515821)
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D" index="0"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Watched" type="ProgressBar" parent="Camera3D/MarginContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 1000.0
+value = 500.0
+
+[connection signal="body_entered" from="Beam/BeamRange" to="StateMachine/Controlled" method="_on_beam_range_body_entered"]
+[connection signal="body_exited" from="Beam/BeamRange" to="StateMachine/Controlled" method="_on_beam_range_body_exited"]
