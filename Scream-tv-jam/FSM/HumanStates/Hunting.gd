@@ -5,25 +5,35 @@ class_name Hunting
 @export var wander_range = 20.
 @export var character : CharacterBody3D 
 # Called when the node enters the scene tree for the first time.
-
+var lost = false
+@onready var timer = $Timer
 
 func Enter():
 	print("THE HUNT IS ON")
 	nav_agent.target_position = pick_a_spot()
 	$"../../SquareEyes".show()
+	timer.wait_time = randf_range(7.0, 20.)
+	timer.start()
+	lost = false
+	
+func Exit():
+	timer.stop()
+	lost = false
 	
 func Update(delta):
-
-	character.look_at(nav_agent.target_position)
-	var current_position = character.global_position
-	if !nav_agent.is_navigation_finished():
-		#nav_agent.set_target_position(character.target.position)
-		var next_position = nav_agent.get_next_path_position()
-		var new_velocity = next_position- current_position
-		new_velocity = new_velocity.normalized()* character.SPEED
-		character.velocity = new_velocity
-	else:
-		nav_agent.target_position = pick_a_spot()
+	if not lost:
+		character.look_at(nav_agent.target_position)
+		var current_position = character.global_position
+		if !nav_agent.is_navigation_finished():
+			#nav_agent.set_target_position(character.target.position)
+			var next_position = nav_agent.get_next_path_position()
+			var new_velocity = next_position- current_position
+			new_velocity = new_velocity.normalized()* character.SPEED
+			character.velocity = new_velocity
+			character.walking = true
+		else:
+			nav_agent.target_position = pick_a_spot()
+			character. walking = false
 		
 		
 func pick_a_spot():
@@ -36,3 +46,10 @@ func pick_a_spot():
 
 func start_chase():
 	Transitioned.emit(self, "Chasing")
+
+
+func _on_timer_timeout():
+	lost = true
+	character.walking = false
+	character.velocity = Vector3.ZERO
+

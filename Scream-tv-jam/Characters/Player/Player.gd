@@ -6,7 +6,10 @@ var mouse_captured = false
 var player_controlled = true
 var target 
 
+var walking = false
+
 @export var SPEED = 5.0
+@export var speed_curve : Curve
 @export var top_speed = 8.0
 const JUMP_VELOCITY = 4.5
 
@@ -19,7 +22,7 @@ var look_dir: Vector2
 
 func _ready():
 	#TODO: Put back in capture
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#mouse_captured = true
 	pass
 
@@ -40,7 +43,10 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			walking = true
+			
 		else:
+			walking = false
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 		
@@ -65,6 +71,9 @@ func rotate_camera(delta: float, sensitivity_modifier: float = 1.0):
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y *camera_sensitivity*sensitivity_modifier*delta, -1.5, 1.5)
 	look_dir = Vector2.ZERO
 
+
+# --- Signals ---
+
 func sees_tv(tv):
 	target = tv
 	$StateMachine/Hunting.start_chase()
@@ -74,4 +83,8 @@ func out_of_range():
 
 
 func _on_tv_watch_val_changed(val):
-	SPEED = remap(val, 0., 1000., 0.2, top_speed)
+	
+	SPEED = speed_curve.sample(val*0.01)
+	if SPEED > 7.0:
+		SPEED += randf_range(0., 1.)
+	print(SPEED)

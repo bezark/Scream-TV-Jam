@@ -1,34 +1,255 @@
-[gd_scene load_steps=11 format=3 uid="uid://cojgwvrjijkj0"]
+[gd_scene load_steps=22 format=3 uid="uid://cojgwvrjijkj0"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_pivyw"]
 [ext_resource type="Script" path="res://FSM/StateMachine.gd" id="2_1tfwy"]
+[ext_resource type="AudioStream" uid="uid://cwws8w0y122x6" path="res://Characters/footsteps.wav" id="2_487vi"]
+[ext_resource type="Script" path="res://Characters/Player/PlayerSound.gd" id="2_uodvc"]
 [ext_resource type="Script" path="res://FSM/HumanStates/Initial.gd" id="3_umv8r"]
+[ext_resource type="AudioStream" uid="uid://c4o26nxnvfoom" path="res://assets/ble.mp3" id="4_7qax3"]
+[ext_resource type="Script" path="res://Characters/Player/SquareEyes.gd" id="4_mwyrw"]
 [ext_resource type="Script" path="res://FSM/HumanStates/Eating.gd" id="4_v6mcp"]
 [ext_resource type="Script" path="res://FSM/HumanStates/Hunting.gd" id="5_4neoa"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://Characters/Player/static_tv.tscn" id="5_tln12"]
 [ext_resource type="Script" path="res://FSM/HumanStates/Chasing.gd" id="6_u3d7a"]
+[ext_resource type="Script" path="res://Characters/Player/HorrorShow.gd" id="11_e3w4g"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_67kdy"]
+[sub_resource type="Curve" id="Curve_lfjhq"]
+min_value = 0.1
+max_value = 20.0
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 14.03), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_mrj4i"]
+size = Vector3(0.75, 2, 0.75)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_au0ee"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i7tr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8s422"]
+metallic = 0.64
+roughness = 0.0
 emission_enabled = true
-emission = Color(0.258824, 0.478431, 1, 1)
-emission_energy_multiplier = 5.53
+emission = Color(0.815686, 0.815686, 0.815686, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_w0mdn"]
-material = SubResource("StandardMaterial3D_8i7tr")
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="PrismMesh" id="PrismMesh_n40n3"]
+material = SubResource("StandardMaterial3D_8s422")
+size = Vector3(0.1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqeay"]
+size = Vector3(1, 2, 1.29785)
+
+[sub_resource type="Animation" id="Animation_82ylh"]
+resource_name = "horror"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SquareEyes:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SquareEyes/TV:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.2, 0.4, 0.1), Vector3(0.2, 0.4, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SquareEyes/TV2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.2, 0.4, 0.1), Vector3(0.2, 0.4, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SquareEyes/Teeth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 0), Vector3(2, 1, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SquareEyes/Teeth:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Killcam:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sound/bleh:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gs3se"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SquareEyes:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SquareEyes/TV:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.2, 0.4, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SquareEyes/TV2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.2, 0.4, 0.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SquareEyes/Teeth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SquareEyes/Teeth:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Killcam:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sound/bleh:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhuuh"]
+_data = {
+"RESET": SubResource("Animation_gs3se"),
+"horror": SubResource("Animation_82ylh")
+}
 
 [node name="Person" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("1_pivyw")
+speed_curve = SubResource("Curve_lfjhq")
 camera_sensitivity = 25
+
+[node name="Sound" type="Node3D" parent="."]
+script = ExtResource("2_uodvc")
+low_speed = 1.25
+high_speed = 0.25
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Sound"]
+current = true
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="Sound"]
+stream = ExtResource("2_487vi")
+max_db = -5.0
+autoplay = true
+bus = &"Person"
+doppler_tracking = 2
+
+[node name="Timer" type="Timer" parent="Sound/Footsteps"]
+
+[node name="bleh" type="AudioStreamPlayer3D" parent="Sound"]
+stream = ExtResource("4_7qax3")
+volume_db = 3.0
+bus = &"Person"
 
 [node name="NavAgent" type="NavigationAgent3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_67kdy")
+mesh = SubResource("BoxMesh_mrj4i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_au0ee")
@@ -37,19 +258,55 @@ shape = SubResource("CapsuleShape3D_au0ee")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 current = true
 
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-current = true
+[node name="Killcam" type="Camera3D" parent="."]
+transform = Transform3D(-1, -8.88178e-16, -2.62268e-07, -1.03378e-08, 0.999223, 0.0394168, 2.62065e-07, 0.0394168, -0.999223, 0.00457954, 0.38144, -3.01782)
 
 [node name="SquareEyes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0894875)
+visible = false
+script = ExtResource("4_mwyrw")
+
+[node name="TV" parent="SquareEyes" instance=ExtResource("5_tln12")]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0.176145, 0.471791, -0.529125)
+
+[node name="TV2" parent="SquareEyes" instance=ExtResource("5_tln12")]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.1, -0.175323, 0.471791, -0.529125)
+
+[node name="Teeth" type="Node3D" parent="SquareEyes"]
+transform = Transform3D(1, 0, 0, 0, 0.992876, -0.119149, 0, 0.119149, 0.992876, 0, 0, -0.532384)
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SquareEyes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197445, 0.533805, -0.528122)
-mesh = SubResource("BoxMesh_w0mdn")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(0.997111, 0.0759533, 0, -0.074767, 0.981537, -0.176054, -0.0133719, 0.175545, 0.98438, 0.19918, -0.107082, 0)
+mesh = SubResource("PrismMesh_n40n3")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SquareEyes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153687, 0.533805, -0.528122)
-mesh = SubResource("BoxMesh_w0mdn")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(1, 0, 0, 0, 0.98438, -0.176054, 0, 0.176054, 0.98438, 0.0713844, -0.107082, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(1, 0, 0, 0, 0.98438, -0.176054, 0, 0.176054, 0.98438, -0.0935197, -0.107082, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(0.997994, -0.0633131, 0, 0.0623242, 0.982406, -0.176054, 0.0111465, 0.175701, 0.98438, -0.230269, -0.107082, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.159428, 0.166483, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.0034786, 0.166483, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.133271, 0.166483, 0)
+mesh = SubResource("PrismMesh_n40n3")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="SquareEyes/Teeth"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.27002, 0.166483, 0)
+mesh = SubResource("PrismMesh_n40n3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_1tfwy")
@@ -66,6 +323,30 @@ script = ExtResource("4_v6mcp")
 script = ExtResource("5_4neoa")
 character = NodePath("../..")
 
+[node name="Timer" type="Timer" parent="StateMachine/Hunting"]
+wait_time = 12.0
+one_shot = true
+
 [node name="Chasing" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("6_u3d7a")
 character = NodePath("../..")
+
+[node name="HorrorShow" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("11_e3w4g")
+character = NodePath("../..")
+
+[node name="KillZone" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0393066, -0.297788)
+shape = SubResource("BoxShape3D_iqeay")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhuuh")
+}
+
+[connection signal="timeout" from="Sound/Footsteps/Timer" to="Sound" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hunting/Timer" to="StateMachine/Hunting" method="_on_timer_timeout"]
+[connection signal="body_entered" from="KillZone" to="StateMachine/Chasing" method="_on_kill_zone_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/HorrorShow" method="_on_animation_player_animation_finished"]

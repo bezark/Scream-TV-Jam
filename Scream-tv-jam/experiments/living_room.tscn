@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cam1rqa81c3od"]
 
-[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://experiments/tv.tscn" id="1_t471l"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://Characters/Player/static_tv.tscn" id="1_t471l"]
 [ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="2_ljk03"]
 [ext_resource type="PackedScene" uid="uid://dntsytev5eqhf" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/treePine_large.glb" id="3_1lp60"]
 [ext_resource type="PackedScene" uid="uid://d4axio1dfsavn" path="res://assets/Kenny/Retro Urban Kit/Models/GLTF format/truck_green.glb" id="4_lssep"]

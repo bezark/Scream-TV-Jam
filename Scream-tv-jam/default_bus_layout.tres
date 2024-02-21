@@ -1,0 +1,60 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://b77xbtahfmlhy"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_vqdpc"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_6272n"]
+resource_name = "Panner"
+pan = 1.0
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_h2ptb"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_88p4a"]
+resource_name = "Chorus"
+voice_count = 4
+wet = 0.93
+voice/1/delay_ms = 22.55
+voice/2/delay_ms = 30.0
+voice/2/pan = 0.61
+voice/3/delay_ms = 40.0
+voice/3/rate_hz = 8.5
+voice/3/depth_ms = 7.03
+voice/3/level_db = -22.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 50.0
+voice/4/rate_hz = 20.0
+voice/4/depth_ms = 0.0
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_2jug2"]
+resource_name = "Distortion"
+mode = 2
+drive = 0.65
+
+[resource]
+bus/1/name = &"Person"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_vqdpc")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectPanner_6272n")
+bus/1/effect/1/enabled = true
+bus/2/name = &"TV"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -1.32149
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_h2ptb")
+bus/2/effect/0/enabled = false
+bus/2/effect/1/effect = SubResource("AudioEffectChorus_88p4a")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectDistortion_2jug2")
+bus/2/effect/2/enabled = true

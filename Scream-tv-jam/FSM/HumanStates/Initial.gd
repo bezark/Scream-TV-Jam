@@ -4,8 +4,8 @@ class_name Initial
 @export var character : CharacterBody3D 
 
 func Enter():
-	pass
-
+	$"../../SquareEyes".hide()
+	$"../../Camera3D".make_current()
 func Exit():
 	character.player_controlled = false	
 	

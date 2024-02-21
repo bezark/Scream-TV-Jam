@@ -6,9 +6,9 @@ class_name Chasing
 
 func Enter():
 	nav_agent.target_position = character.target.position
-
+	character.walking = true
 func Update(delta):
-	character.SPEED += 0.005
+	
 	nav_agent.target_position = character.target.position
 	character.look_at(nav_agent.target_position)
 	var current_position = character.global_position
@@ -21,3 +21,8 @@ func Update(delta):
 
 func out_of_range():
 	Transitioned.emit(self, "Hunting")
+
+
+func _on_kill_zone_body_entered(body):
+	if body.name == "TV":
+		Transitioned.emit(self, "HorrorShow")

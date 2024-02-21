@@ -11,6 +11,7 @@ var afraid_of_target = false
 
 @export_category("Watched")
 @export var watched_value = 50.0
+@export var watch_curve : Curve
 
 var on_screen : bool
 
@@ -57,4 +58,5 @@ func change_watched_value(val):
 	watched_value += val
 	%Watched.value = watched_value
 	watched_value = %Watched.value
+	Globals.progress = watched_value
 	emit_signal("watch_val_changed", watched_value)

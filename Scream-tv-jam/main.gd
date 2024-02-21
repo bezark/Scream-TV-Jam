@@ -20,7 +20,11 @@ func _process(delta):
 			eat.show()
 		else:
 			eat.hide()
-
+		if Input.is_action_just_pressed("interact") and eat.visible:
+			eat.hide()
+			baby_eaten = true
+			$Person/StateMachine/Initial.eat_baby()
+			animations.play("eat_baby")
 
 func _on_baby_tv_interactable(object, actor, truth):
 	if truth && object.on_screen:
@@ -28,17 +32,10 @@ func _on_baby_tv_interactable(object, actor, truth):
 	else:
 		baby_in_range = false
 
-func _unhandled_input(event):
-	if event.is_action_pressed("interact"):
-		if eat.visible:
-			eat.hide()
-			baby_eaten = true
-			$Person/StateMachine/Initial.eat_baby()
-			animations.play("eat_baby")
 
 
 func _on_animations_animation_finished(anim_name):
 	if anim_name == "eat_baby":
 		$Person/StateMachine/Eating.done_eating()
 		$TV/StateMachine.on_child_transition($TV/StateMachine.current_state, "Controlled")
-		$BabyTV.queue_free() 
+		$BabyTV.position.z = -100

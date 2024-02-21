@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dghkrptovovw7" path="res://assets/Kenny/City Kit - Suburban/Models/GLTF format/house_type01.glb" id="1_bmwla"]
 [ext_resource type="PackedScene" uid="uid://cojgwvrjijkj0" path="res://Characters/Player/player.tscn" id="2_yavq7"]
-[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://experiments/tv.tscn" id="3_k1jwh"]
+[ext_resource type="PackedScene" uid="uid://cpcf1gog77j1s" path="res://Characters/Player/static_tv.tscn" id="3_k1jwh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amr78"]
 sky_top_color = Color(0, 0, 0, 1)

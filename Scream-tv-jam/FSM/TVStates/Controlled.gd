@@ -3,6 +3,7 @@ class_name Controlled
 
 @export var character : CharacterBody3D
 
+@onready var cooks = $"../../Sounds/Cooks"
 var controlled = false
 
 #
@@ -37,6 +38,7 @@ func Enter():
 	watched.value = character.watched_value
 	watched.show()
 	character.SPEED = 5.0
+	$"../../Sounds/AudioListener3D".make_current()
 
 func _ready():
 	#TODO: Put back in capture
@@ -63,20 +65,25 @@ func Update(delta):
 	
 		#character.move_and_slide()
 #/////////////////CHARGING
-	if Input.is_action_just_pressed("jump"): #TODO: Change input from jump
+	if Input.is_action_just_pressed("interact"): #TODO: Change input from jump
 		beam.visible = !beam.visible
+		cooks.stream_paused = !cooks.stream_paused
+		#if cooks.playing:
+			#cooks.stop()
+		#else:
+			#cooks.play()
 		$"../../Beam/BeamRange".monitoring = !$"../../Beam/BeamRange".monitoring 
 		if charging:
 			charging = false
 			character.targete.out_of_range()
-	
+	#prints(character.watched_value*0.01, character.watch_curve.sample(character.watched_value*0.01))
 	if charging:
-		character.change_watched_value(0.5)
+		character.change_watched_value(character.watch_curve.sample(character.watched_value*0.01))
 	else:
-		character.change_watched_value(-0.25)
+		character.change_watched_value(-character.watch_curve.sample(0.9-(character.watched_value*0.01)))
 	
 		
-	
+	cooks.pitch_scale= remap(Globals.progress, 50., 100., 0.65, 0.1)
 	
 func _input(event):
 	if controlled:

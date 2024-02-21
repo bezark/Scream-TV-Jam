@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Characters/living_tv.gd" id="1_ht7ep"]
 [ext_resource type="ArrayMesh" uid="uid://inyrjlajiagb" path="res://assets/Comp.res" id="1_iww6c"]
 [ext_resource type="Texture2D" uid="uid://dks8dj0wdf2mn" path="res://assets/Texture/TV_03.jpg" id="2_2pox0"]
-[ext_resource type="VideoStream" path="res://Content/videos/experimentsinmotiongraphics.ogv" id="4_nftcm"]
+[ext_resource type="VideoStream" path="res://assets/cooks short.ogv" id="4_m7878"]
 [ext_resource type="Script" path="res://FSM/StateMachine.gd" id="4_x6g53"]
 [ext_resource type="Script" path="res://FSM/TVStates/happy_broadcast.gd" id="6_d2b1o"]
 [ext_resource type="Script" path="res://FSM/TVStates/anxious.gd" id="7_01ha7"]
@@ -83,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("4_nftcm")
+stream = ExtResource("4_m7878")
 volume_db = -80.0
 autoplay = true
 

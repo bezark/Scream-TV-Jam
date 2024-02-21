@@ -1,7 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnu50h3x1jkj2"]
+[gd_scene load_steps=14 format=3 uid="uid://dnu50h3x1jkj2"]
 
 [ext_resource type="PackedScene" uid="uid://bseken28keq43" path="res://Characters/living_tv.tscn" id="1_5lnem"]
 [ext_resource type="Script" path="res://FSM/TVStates/Controlled.gd" id="2_2muyx"]
+[ext_resource type="AudioStream" uid="uid://ctqbftdmjm48u" path="res://Characters/Player/TooManyCooks.mp3" id="3_tqwqu"]
+
+[sub_resource type="Curve" id="Curve_vjfre"]
+bake_resolution = 1000
+_data = [Vector2(0, 0.25), 0.0, -0.0035664, 0, 0, Vector2(0.99, 0.01), -0.0507747, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avmlp"]
 resource_local_to_scene = true
@@ -92,7 +98,7 @@ radius = 3.59204
 
 [node name="TV" instance=ExtResource("1_5lnem")]
 motion_mode = 1
-watched_value = 500.0
+watch_curve = SubResource("Curve_vjfre")
 
 [node name="Mesh" parent="." index="1"]
 mesh = SubResource("ArrayMesh_2jicf")
@@ -133,8 +139,17 @@ theme_override_constants/margin_bottom = 20
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-max_value = 1000.0
-value = 500.0
+value = 1.0
+
+[node name="Sounds" type="Node3D" parent="." index="8"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Sounds" index="0"]
+
+[node name="Cooks" type="AudioStreamPlayer3D" parent="Sounds" index="1"]
+stream = ExtResource("3_tqwqu")
+pitch_scale = 0.65
+autoplay = true
+bus = &"TV"
 
 [connection signal="body_entered" from="Beam/BeamRange" to="StateMachine/Controlled" method="_on_beam_range_body_entered"]
 [connection signal="body_exited" from="Beam/BeamRange" to="StateMachine/Controlled" method="_on_beam_range_body_exited"]
